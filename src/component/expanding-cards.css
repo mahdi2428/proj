@@ -1,0 +1,30 @@
+
+  .panel {
+    height: 80vh;
+    color: #fff;
+    flex: 0.5;
+    transition: all 700ms ease-in;
+  }
+  
+  .panel.active {
+    flex: 5;
+    z-index: 0;
+    opacity: 1;
+  }
+  
+  .panel.active p {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      width: 95vw;
+    }
+  
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+      display: none;
+    }
+  }
+  

@@ -43,7 +43,8 @@ module.exports = {
     backdropSaturate: ({ theme }) => theme('saturate'),
     backdropSepia: ({ theme }) => theme('sepia'),
     backgroundColor: ({ theme }) => theme('colors'),
-    backgroundImage: {
+    backgroundImage: 
+    {
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
       'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
@@ -303,6 +304,7 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+
       sans: [
         'ui-sans-serif',
         'system-ui',
@@ -319,6 +321,7 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
+      custom : [ 'cursive'],
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
         'ui-monospace',

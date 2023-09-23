@@ -1,19 +1,35 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 .input{
-  @apply rounded-md focus:outline-none pl-6 py-1 m-1 mt-2 bg-transparent border-b-2 border-gray-50 transition ease-in-out  hover:-translate-y-1  duration-300 hover:text-white
+  @apply text-white  rounded-md focus:outline-none pl-6 py-1 m-1 mt-2 bg-transparent border-b-2 border-gray-50 transition ease-in-out  hover:-translate-y-1  duration-300 hover:text-white
 }
-body {
+.input1{
+  @apply w-full lg:w-3/5  text-white rounded-md focus:outline-none pl-6  mt-3 bg-transparent border-b-2 border-gray-50 transition ease-in-out  hover:-translate-y-1  duration-300 hover:text-white
+}
+.bbtn{
+  @apply rounded-lg p-1 my-3 ml-4 hover:text-blue-600 hover:underline  hover:shadow-lg transition-all ease-in hover:border-transparent hover:-translate-y-[3px] duration-300  font-custom
+}
+.b1btn{
+  @apply rounded-lg p-1 my-3 ml-4 hover:text-blue-600 hover:underline  hover:shadow-lg transition-all ease-in hover:border-transparent hover:-translate-y-[3px]  duration-300  font-custom
+} 
+
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.root1{
+  background-image: url(../public/image/Shiny\ Overlay\ \(5\).svg);
+  background-repeat: no-repeat;
+}  

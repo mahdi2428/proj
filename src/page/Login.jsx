@@ -1,38 +1,90 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useAuth } from '../context/AuthContext'
 import './login.css'
 import { Link } from 'react-router-dom'
-import image from '../image/network.jpg'
+import image  from '../image/network.jpg'
+import Navbar from './navbar'
 
-
+let k1 = 0
+let k = 0
 export default function Login() {
   let {LoginUser} = useAuth()
-  return (
-    <div className='min-h-screen flex justify-center items-center focus:ring-0'
-    style={{backgroundImage: `url(${image})`}}>
-        <form className=' w-1/5 flex flex-col border border-violet-200 p-4 shadow bg-gray-100 rounded-xl bg-transparent h-96 focus:ring-0 backdrop-blur-md ' onSubmit={LoginUser}>
-            <p className='text-2xl mb-10 text-gray-300 font-extrabold'>Log In</p>
+  const [namechanger , setNamechanger]= useState(false)
+  const [placeholder ,setPlaceholder ] = useState(false)
+  const [putplaceholder , setPutplaceholer] = useState('Enter your name')
+  const [putplaceholder1 , setPutplaceholer1] = useState('Enter your password')
+  const [putplaceholder2 , setPutplaceholer2] = useState('Log in')
+  const [putplaceholder3 , setPutplaceholer3] = useState('Forgot your passworld?')
+  const [putplaceholder4 , setPutplaceholer4] = useState('if you have not register yet:')
+  const [putplaceholder5 , setPutplaceholer5] = useState('sing up')
+  const [putplaceholder6 , setPutplaceholer6] = useState('Log in')
+  const [justifyContent, setJustifyContent] = useState('flex');
+  
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-5 absolute  text-gray-400 ml-2 mt-14 ">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-            </svg>
+
+  const placeholderchanger = () =>{
+      let i = 0
+      setPlaceholder(!placeholder);
+      setPutplaceholer(placeholder ? 'Enter your name' : 'اسم خود را وارد کنید')
+      setPutplaceholer1(placeholder ? 'Enter your password' : 'رمز خود را وارد کنید')
+      setPutplaceholer2(placeholder ? 'Log in ' : 'وارد شوید')
+      setPutplaceholer3(placeholder ? 'Forgot your passworld? ' : ' رمز خود را فراموش کردید؟')
+      setPutplaceholer4(placeholder ? 'if you have not register yet:' : 'اگر ثبت نام نکردید')
+      setPutplaceholer5(placeholder ? 'sing in' : 'ثبت نام کنید')
+      setPutplaceholer6(placeholder ? 'Log in ' : 'وارد شوید')
+      setNamechanger(!namechanger);
+  
+      if(k==0){
+      for( i=0; i<2 ; i++){
+          document.querySelectorAll(".input")[i].style.textAlign='right'
+      }}
+      if(k==1){
+          for( i=0; i<2 ; i++){
+              document.querySelectorAll(".input")[i].style.textAlign='left'
+              }
+          }
+          
+        k++
+      if(k==2){
+          k=0
+        }
+        if (k === 0) {
+          setJustifyContent({justifyContent :'flex-start'});
+        } else if (k === 1) {
+          setJustifyContent({justifyContent :'flex-start'});
+        }
+
+
+  }
+  return (
+    <div style={{backgroundImage: `url(${image})`}}>
+      <div className='flex'>
+      <button className=' border-violet-200 m-3 py-1 px-2 bg-gray-200 rounded-xl shadow-xl 
+        hover:bg-blue-600 hover:text-white hover:shadow-lg transition ease-in-out  bg-blue-500 hover:-translate-y-1  duration-300 font-medium' onClick={placeholderchanger}>{namechanger ? 'English':'فارسی'}</button>
+      </div>
+    <div className='min-h-screen flex justify-center items-center focus:ring-0'>
+        <form className=' w-full mx-2 lg:w-1/3 xl:w-1/5 flex flex-col border border-violet-200 p-4 shadow bg-gray-100 rounded-xl bg-transparent h-96 focus:ring-0 backdrop-blur-md ' onSubmit={LoginUser}>
+            <p className='text-2xl mb-5 text-gray-300 font-extrabold'>{putplaceholder2}</p>
+
+            <i className="bi bi-person text-xl text-gray-300 "></i>
             
-            <input className='input pb- ' type='text'  name='username' placeholder='Enter Your Username '/>
+            <input className=' input ' type='text'  name='username' placeholder= {putplaceholder}/>
             
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"className="h-5 absolute mt-36 ml-2 text-gray-400 ">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-            </svg>
+            <i className="bi bi-key text-xl text-gray-300 pt-2"></i>
             
-            <input className='input mt-11' type='password' name='password' placeholder='Enter Password'/>
+            <input className='input  mt-1 text-white' type='password' name='password' placeholder={putplaceholder1}/>
            
             <div>
-              <p className='mt-10 font-bold text-gray-300 flex justify-start ml-3 transition ease-in-out delay-150 hover:text-white hover:underline hover:-translate-y-1  duration-300 w-32' ><Link> froget password</Link></p> 
-              <p className='mt-1 text-sm text-gray-300 flex justify-start ml-3 transition ease-in-out delay-150 ' >if you have not register yet: 
-                <Link className='text-gray-300 underline hover:-translate-y-1 duration-300 ml-2 font-semibold '>sing up</Link>
+              <div >
+                <p style={{ setJustifyContent }} className='mt-3 flex font-bold text-gray-300 ml-3 transition ease-in-out hover:text-white hover:underline hover:-translate-y-1  duration-300 changer' ><Link >{putplaceholder3}</Link></p> 
+              </div>
+              <p className='mt-1 text-sm text-gray-300 flex justify-start ml-3 transition ease-in-out ' >{putplaceholder4} 
+                <Link className='text-gray-300 underline hover:-translate-y-1 duration-300 ml-2 font-semibold '>{putplaceholder5}</Link>
               </p>
-              <button className='font-thin rounded-2xl w-full mt-5 py-1 shadow border-gray-400 bg-white hover:bg-blue-600 hover:text-white hover:shadow-lg transition ease-in-out  bg-blue-500 hover:-translate-y-1  duration-300 font-medium	'  type='submit' >Log in</button>
+              <button className='font-thin rounded-2xl w-full mt-5 py-1 shadow border-gray-400 bg-white hover:bg-blue-600 hover:text-white hover:shadow-lg transition ease-in-out  bg-blue-500 hover:-translate-y-1  duration-300 font-medium	'  type='submit' >{putplaceholder6}</button>
             </div>
         </form>
+    </div>
     </div>
   )
 }

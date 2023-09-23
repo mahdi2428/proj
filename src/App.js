@@ -6,15 +6,16 @@ import Header from './component/Header';
 // import { PrivateRoute } from './utils/PrivateRoute';
 import { ProtectedRoute } from './utils/PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
+import PrivatePage from './page/PrivatePage';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header/>
+        {/* <Header/> */}
+        <HomePage/>
         <Routes>
-          
           <Route path='/login' 
           element = {
             <AuthProvider>
@@ -26,12 +27,11 @@ function App() {
           element = {
             <AuthProvider>
               <ProtectedRoute>
-                <HomePage/>
+                <PrivatePage/>
               </ProtectedRoute>
             </AuthProvider>
           }
           />
-          
         </Routes>
       </Router>
     </div>

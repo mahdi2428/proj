@@ -8,7 +8,7 @@ export default function Header
     <div>
         <Link to='/login'>Login</Link>
         <span>   |   </span>
-        <Link to='/'>HomePage</Link>
+        <Link to='/'>Privatepage</Link>
     </div>
   )
-}
+  }

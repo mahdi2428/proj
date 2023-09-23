@@ -1,0 +1,11 @@
+.bt{
+    background: linear-gradient(268.25deg,var(--background-gradient-end) .46%,var(--background-gradient-start) 97%),linear-gradient(95.05deg,var(--outline-gradient-start) 0,var(--outline-gradient-end) 54.06%);
+    border-radius: 6px;
+    color: var(--octo-color-primary);
+    font-size: var(--octo-font-size-extra-small);
+    font-weight: 600;
+    height: 35px;
+    /* margin: 1px; */
+    padding: 5px 15px;
+    width: 100%;
+}
